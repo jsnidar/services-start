@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { LoggingService } from "./logging.service";
 
 //this makes this service injectable, meaning you can inject dependencies into it. 
@@ -19,6 +19,9 @@ export class AccountsService {
       status: 'unknown'
     }
   ];
+
+  //create a new eventEmitter that will be triggered when the status is updated
+  statusUpdated = new EventEmitter<string>()
 
   //this makes logging Service accessible to the methods of the service
   constructor(private loggingService: LoggingService){}

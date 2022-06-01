@@ -21,5 +21,9 @@ export class AccountComponent {
     //this would create a new instance of loggingService each time
     //that is different from any other instance created elsewhere
     // this.loggingService.logStatusChange(status)
+
+    //emit the event statusUpdated when the status is updated 
+    //so that it can be read anywhere else with access to that instance of accountsSerivce
+    this.accountsService.statusUpdated.emit(status)
   }
 }

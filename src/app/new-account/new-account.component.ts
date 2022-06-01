@@ -10,7 +10,14 @@ import { LoggingService } from '../logging.service';
 })
 export class NewAccountComponent implements OnInit {
 
-  constructor(private loggingService : LoggingService, private accountsService: AccountsService){}
+  constructor(private loggingService : LoggingService, private accountsService: AccountsService){
+    
+
+    //subscribe to statsUpdated to listen to what it emits
+    this.accountsService.statusUpdated.subscribe(
+      (status: string) => alert("New Status: " + status)
+    )
+  }
 
   ngOnInit(){
 
