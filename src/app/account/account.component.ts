@@ -6,7 +6,7 @@ import { LoggingService } from '../logging.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService]
+  providers: []
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
@@ -18,6 +18,8 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateAccount(this.id, status)
-    this.loggingService.logStatusChange(status)
+    //this would create a new instance of loggingService each time
+    //that is different from any other instance created elsewhere
+    // this.loggingService.logStatusChange(status)
   }
 }

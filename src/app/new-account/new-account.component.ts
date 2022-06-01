@@ -6,7 +6,7 @@ import { LoggingService } from '../logging.service';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  providers: []
 })
 export class NewAccountComponent implements OnInit {
 
@@ -18,7 +18,8 @@ export class NewAccountComponent implements OnInit {
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountsService.addAccount(accountName, accountStatus)
-
-    this.loggingService.logStatusChange(accountStatus)
+    //this would create a new instance of loggingService each time
+    //that is different from any other instance created elsewhere
+    // this.loggingService.logStatusChange(accountStatus)
   }
 }
